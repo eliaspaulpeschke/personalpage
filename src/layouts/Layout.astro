@@ -1,0 +1,146 @@
+---
+export interface Props {
+	title: string;
+}
+import Navbar from '../components/Navbar.astro';
+import Background from '../components/Background.astro';
+import Footer from '../components/Footer.astro';
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Personal Portfolio of Elias Peschke">
+		<meta name="author" content="Elias Peschke">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Elias Peschke | {title} </title>
+	</head>
+	<body>
+	    <div id="container">
+            <div id="background">
+	            <header> 
+                    <Navbar /> 
+	            </header>
+                
+	            <slot />
+
+                <footer>
+                    <Footer />
+                </footer>
+			    
+                <Background />
+	        </div>
+	    </div>
+	</body>
+</html>
+<style is:global>
+
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+    url("/Quicksand-VariableFont_wght.ttf") format("truetype");
+}
+
+	
+/* colors: #F3F0ED #C35751 #9FBAA9 #343B3B #587164*/
+* {
+    font-family: 'Quicksand', sans-serif;
+    padding: 10px;
+    margin: 10px;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
+/*html, body{
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    border: none;
+    background-color: transparent;
+}*/
+
+
+#background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+    overflow: scroll;
+    background-color: transparent;
+}
+
+p {
+    border: none;
+}
+
+br{
+    margin:0;
+    padding: 0;
+}
+
+#main{
+    max-width: 50vw;
+}
+
+h1{
+    font-weight: 100;
+    font-size: 5rem;
+}
+
+h2{
+    font-size: 3rem;
+    font-weight: 100;
+}
+
+h3{
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+#container{
+    background-color: transparent;
+    z-index: 1000;
+    position: absolute;
+    margin: auto;
+    width: 95vw;
+    min-height: 95vh;
+}
+
+.video{
+    aspect-ratio: 16/9 !important;
+    width: 80%;
+}
+
+
+@media (max-width: 800px) {
+ h1{
+    font-size: 3rem;
+ }
+ #navigating{
+    flex-direction: column;
+ }
+ #heading{
+    max-width: 90vw;
+    margin: auto;
+    min-height: 6rem;
+}
+#main{
+    max-width: 90vw;
+    margin: auto;
+    margin-left: auto !important;
+}
+#navigating{
+    max-width: 90vw;
+}
+}
+</style>
