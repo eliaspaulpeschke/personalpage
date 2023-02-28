@@ -35,6 +35,7 @@ const { title } = Astro.props;
 			    
                 <Background />
 	        </div>
+            <div id="backpane"></div>
 	</body>
 </html>
 <style is:global>
@@ -78,12 +79,29 @@ const { title } = Astro.props;
 .small{
         max-width: 400px;
         min-width: 300px;
-        max-height: 350px;
+        max-height: 365px;
 }
 
 header, #main, footer{
     margin-bottom:45px;
 }
+
+#backpane{
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        top:0;
+        height: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;    
+        background-image: url("PageBackpane@0,5x-wh.jpg");
+        background-position: center;
+        background-size: 100vw;
+        background-repeat: repeat-y;
+        z-index: -1000;
+
+    }
 
 #background{
     position: absolute;
