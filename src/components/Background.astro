@@ -3,6 +3,18 @@
 <div id="b3" class="background-elem"></div>
 <div id="b4" class="background-elem"></div>
 
+<script>
+    let els = document.getElementsByClassName("background-elem");
+    if(els){
+        window.onload = ()=>{
+            for(let elem of els){
+                elem.setAttribute("style", "width: 25vw;");
+         }
+        };
+       
+    }
+</script>
+
 <style >
 .background-elem{
     display: block;
@@ -11,25 +23,26 @@
     position: fixed;
     height: 100%;
     top: 0;
-    width: 25vw;
+    width: 0;
     padding: 0;
     margin: 0;
+    transition: all 2s ease-in-out;
 }
 
 #b1{
-    background-color: #ccc;/*#e1a9fb;*/
+    background-color: #f0f0f0;/*#e1a9fb;*/
     left: 0;
 }
 #b2{
-    background-color: #ddd;/*#53a093;*/
+    background-color: #f4f4f4;/*#53a093;*/
     left: 25vw;
 }
 #b3{
-    background-color: #eee;/*#f3ddae;*/
+    background-color: #f8f8f8;/*#f3ddae;*/
     left: 50vw;
 }
 #b4{
-    background-color: #fff;/*#f8f9fb;*/
+    background-color: #fbfbfb;/*#f8f9fb;*/
     left: 75vw;
 }
 </style>
