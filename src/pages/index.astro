@@ -4,18 +4,42 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Home">
 		  <div id="main" role="main">
-			<div id="youtube-container">
-			<div id="youtube" class="video"><h3>PERFORMANCE LIVESTREAM</h3>	
-				<p>16.03.2023, 10:00 - 26.03.2023, 10:00 </p><br/>
-				<img id="play" src="play_arrow.svg"/>
-			<p>
-			Clicken Sie hier, um den Youtube-Livestream der Performance zu öffnen. <br/>
-			Damit erlauben Sie Youtube (gehörig zu Google Inc.), Cookies auf Ihrem Rechner zu speichern. <br/>
-		    </p>
-			<a class="underline" href="/datenschutz"> &nabla; Datenschutz</a>
-			</div>
-		   </div>
-	  
+			<div class="block-container">
+			    <div id="youtube-container" class="block">
+			        <div id="youtube" class="video">
+						<h3>
+							Dyade - PERFORMANCE LIVESTREAM
+						</h3>	
+			        	<p>
+							16.03.2023, 10:00 - 26.03.2023, 10:00 
+						</p>
+						<br/><br/>
+			        	<img id="play" src="play_arrow.svg"/>
+			        	<br/>
+			            <p class="bottom">
+			                Clicken Sie hier, um den Youtube-Livestream der Performance zu öffnen. <br/>
+			                Damit erlauben Sie Youtube (gehörig zu Google Inc.), Cookies auf Ihrem Rechner zu speichern. <br/>
+			                <a class="datenschutz" href="/datenschutz"> &nabla; Datenschutz</a>
+		                </p>
+			        </div>
+		        </div>
+				<div class="textbox block small">
+                    <h3>Dyade</h3>
+                    <p>
+                        ist eine Performance, in der ich 10 Tage lang ein Tamagotchi (Gen 1, 1997) mit Strom aus meiner Körperwärme betreiben werde. <br/>
+                        Die Performance kann vom 16.03.2023 bis zum 26.03.2023 täglich von 10 bis 16 Uhr in der Bahnhofstraße 50 (17489 Greifswald), im großen Saal des Medienzentrums besichtigt werden.
+                    </p>
+                </div>
+
+                <div class="textbox block small">
+                    <h3>Dyad</h3>
+                    <p>
+                        is a performance where I will power a Gen 1 Tamagotchi from 1997 only with my body's warmth for 10 days. <br/>
+                        You can view it from 03/16/2023 to 03/26/2023 every day from 10am to 4pm in Bahnhofstraße 50 (17489 Greifswald), in the CDFI Media Centre.
+                    </p>
+                </div>
+
+		    </div>
 		  </div>
 
 </Layout>
@@ -23,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
 	let youtube = document.getElementById("youtube");
 	if(youtube){
 	  youtube.onclick = () => {let you = document.getElementById("youtube-container"); if(you){
-		you.innerHTML = '<iframe class="video" src="https://www.youtube.com/embed/Y1KDQXdlHZA" title="Electronic Pet - Performance (Elias Peschke)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+		you.innerHTML = '<iframe class="video" src="https://www.youtube-nocookie.com/embed/Y1KDQXdlHZA" title="Electronic Pet - Performance (Elias Peschke)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 	  }};
 	}
 </script>
@@ -32,9 +56,12 @@ import Layout from '../layouts/Layout.astro';
 		padding:0;
 		margin:0;
 	}
+
 	#play{
+		position: absolute;
+		top: calc(50% - 32px);
+		left: calc(50% - 32px);
 		display: block; 
-		margin: auto; 
 		width: 64x; 
 		height: 64px; 
 		padding: 0;
@@ -44,14 +71,39 @@ import Layout from '../layouts/Layout.astro';
 		transform: scale(1.1);
 	}
 	#youtube{
+		padding: 20px;
+		position: relative;
 		background-color: black;
 		color: white;
 		cursor: pointer;
+		margin:0;
 	}
 
-	.underline{
+	.datenschutz{
 		color: white !important;
 		text-decoration: underline;
+		padding: 0;
+		margin: 0;
 	}
+	
+	.bottom{
+		position:absolute;
+		bottom:15px;
+	}
+	@media (max-width: 900px) {
+		#youtube > * {
+			margin: 5px;
+		}
+
+		#play{
+			position: relative !important;
+			left: calc(50% - 32px);
+			top: -2%;
+		}
+		.bottom{
+			position: unset !important;
+		}
+	}
+
 
 </style>
