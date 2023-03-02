@@ -23,15 +23,19 @@ const { title } = Astro.props;
 	</head>
 	<body>
             <div id="background">
+                <div id="scrolled">
 	            <header> 
                     <Navbar /> 
 	            </header>
                 
 	            <slot />
 
+                <div id = "footerspace"></div>
                 <footer>
                     <Footer />
                 </footer>
+                
+                </div>
 			    
                 <Background />
 	        </div>
@@ -86,6 +90,26 @@ header, #main, footer{
     margin-bottom:45px;
 }
 
+#scrolled{
+    position: relative;
+    height: max-content;
+    margin: 30px;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+#footerspace{
+    height: 150px;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+footer{
+    position: absolute;
+    bottom: 30px;
+}
+
 #backpane{
         position: absolute;
         padding: 0;
@@ -95,12 +119,21 @@ header, #main, footer{
         left: 0;
         right: 0;
         background-color: white;    
-        background-image: url("/PageBackpane@0,5x-wh.jpg");
+        background-image: url("/PageBackpaneLow.jpg");
         background-position: center;
         background-size: 100vw;
         background-repeat: repeat-y;
         z-index: -1000;
+    }
 
+    .table{
+        text-align: left !important;
+    }
+
+    .table tr,.table td{
+        padding-bottom: 10px;
+        padding-right: 20px;
+        margin-right: 10px;
     }
 
 #background{
@@ -110,8 +143,8 @@ header, #main, footer{
     right: 0;
     bottom: 0;
     border: none;
-    padding: 30px;
-    margin: 30px;
+    padding: 0;
+    margin: 0;
     overflow: scroll;
     background-color: transparent;
 }
@@ -198,7 +231,7 @@ h3{
         max-width: 70vw !important;
     }
 
-#background{
+#scrolled{
     padding: 10px;
     margin: 10px;
 }
