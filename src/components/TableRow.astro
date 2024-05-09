@@ -1,0 +1,15 @@
+---
+
+interface Props {
+    cols: Array<String>;
+    }
+const { cols } = Astro.props;
+---
+
+<tr>
+	{ cols.map((val) => (
+	     <td>
+		<Fragment set:html={val}></Fragment> 
+	    </td>
+	))}
+</tr>
