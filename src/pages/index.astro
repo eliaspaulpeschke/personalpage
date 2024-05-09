@@ -1,151 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Block from '../components/Block.astro';
+import BlockContainer from '../components/BlockContainer.astro';
+import TableRow from '../components/TableRow.astro';
+
+const vita = [
+["2015 - 16", "Regieassistenz Theater Aachen"],
+["2017 - ⟳","Bildende Kunst und Philosophie, Universität Greifswald"],
+["2019 - 23","Grundlagenbildung Theaterpädagogik BuT"],
+["2023 - ⟳","Master Bildende Kunst, Universität Greifswald"],
+["2023","INSOMNALE-Preisträger"],
+["2024","Künstlerhaus Lukas Ahrenshoop"],
+].reverse();
+
+
+const arbeiten = [
+["2021",'GK1 - Performance ohne Zuschauer: ich dusche in 3500g "Heinrich Lüders Grünkohl stramme Packung" - Filmschnitt folgt.'],
+["2021",'<a href="https://photos.app.goo.gl/cBjwX4QvFpRkp4JU7">Heu - Kurzfilm ⮵</a>'],
+["2021",'<a href="https://photos.app.goo.gl/uEHEZ5XyhKfTXDBXA">Eis, Glotze, Glotze II - 3 Kurzfilme ⮵</a>'],
+["2022",'<a href="https://photos.app.goo.gl/CHAU5t6dGLgoWsgV8">Hotline - Installation im Rechenzentrum der Universität Greifswald ⮵</a>'],
+["2023","DYADE - Performance: 10 Tage ein Tamagotchi nur mit der eigenen Körperwärme betreiben"],
+["2024","iiiiiiiiii - Installation: Reaktive Schilfhalme"],
+["2024",'<a href="http://neues-kunsthaus-ahrenshoop.de/ausstellungen/junge-kunst-aus-nordeuropa-2024">Junge Kunst aus Nordeuropa - Gruppenausstellung im Neuen Kunsthaus Ahrenshoop ⮵</a>']
+].reverse();
 ---
 
-<Layout title="Home">
-		  <div id="main" role="main">
-			<div class="block-container">
-			    <div id="youtube-container" class="block">
-			        <div id="youtube" class="placeholder">
-						<h3>
-							Dyade - PERFORMANCE LIVESTREAM
-						</h3>	
-			        	<p>
-							16.03.2023, 10:00 - 26.03.2023, 10:00 
-						</p>
-						<br/><br/>
-			        	<img id="play" src="play_arrow.svg"/>
-			        	<br/>
-			            <p class="bottom">
-			                Clicken Sie hier, um den Youtube-Livestream der Performance zu öffnen. <br/>
-			                Damit erlauben Sie Youtube (gehörig zu Google Inc.), Cookies auf Ihrem Rechner zu speichern. <br/>
-			                <a class="datenschutz" href="/datenschutz"> &nabla; Datenschutz</a>
-		                </p>
-			        </div>
-		        </div>
-				<div class="textbox block small">
-                    <h3>Dyade</h3>
-                    <p>
-                        ist eine Performance, in der ich 10 Tage lang ein Tamagotchi (Gen 1, 1997) mit Strom aus meiner Körperwärme betreiben werde. <br/>
-                        Die Performance kann vom 16.03.2023 bis zum 26.03.2023 in der Bahnhofstraße 50 (17489 Greifswald), im großen Saal des Medienzentrums besichtigt werden.<br/>
-                    </p>
-                </div>
-
-                <div class="textbox block small">
-                    <h3>Dyad</h3>
-                    <p>
-                        is a performance where I will power a Gen 1 Tamagotchi from 1997 only with my body's warmth for 10 days. <br/>
-                        You can view it from 03/16/2023 to 03/26/2023 every day in Bahnhofstraße 50 (17489 Greifswald), in the CDFI Media Centre.<br/>
-                    </p>
-                </div>
-
-				<div class="block table">
-                    <h3>Öffnungszeiten</h3>
-                    <table>
-                        <tr>
-                            <td>
-                                Mo - Do
-                            </td>
-							<td>
-                                9:00 - 16:30 
-                            </td>
-						</tr>
-						<tr>
-                            <td>
-                                Fr
-                            </td>
-							<td>
-                                10:30 - 16:30 
-                            </td>
-						</tr>
-						<tr>
-                            <td>
-                                Sa & So
-                            </td>
-							<td>
-                                13:00 - 19:00 
-                            </td>
-						</tr>
-						<tr>
-							<td>
-                                So 26.03
-                            </td>
-							<td>
-                                10:00 - 14:00, Ende der Performance um 13:08
-                            </td>
-						</tr>
-					</table>
-				</div>
-
-		    </div>
-		  </div>
-
+<Layout title="Vita">
+	<div id="main" role="main">
+		<BlockContainer>
+			<Block title='Arbeiten / Ausstellungen'>
+				<table>
+					{arbeiten.map((arbeit) => (
+					<TableRow cols={arbeit}>
+					</TableRow>
+					))
+					}
+				</table>
+			</Block>
+			<Block title='Vita'>
+				<table>
+					{vita.map((entry) => (
+					<TableRow cols={entry}>
+					</TableRow>
+					))
+					}
+				</table>
+			</Block>
+		</BlockContainer>
+          </div>
 </Layout>
-<script>
-	let youtube = document.getElementById("youtube");
-	if(youtube){
-	  youtube.onclick = () => {let you = document.getElementById("youtube-container"); if(you){
-		you.innerHTML = '<iframe class="video" src="https://www.youtube-nocookie.com/embed/Y1KDQXdlHZA" title="Electronic Pet - Performance (Elias Peschke)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-	  }};
-	}
-</script>
-<style>
-	#youtube-container{
-		padding:0;
-		margin:0;
-	}
 
-	#play{
-		position: absolute;
-		top: calc(50% - 32px);
-		left: calc(50% - 32px);
-		display: block; 
-		width: 64x; 
-		height: 64px; 
-		padding: 0;
-		transition: ease-in-out;
-	}
-	#play:hover{
-		transform: scale(1.1);
-	}
-	#youtube{
-		padding: 20px;
-		position: relative;
-		background-color: black;
-		background-image: url("/VideoThumb.jpg");
-		background-size: cover;
-		background-repeat: none;
-		background-position: center;
-		color: white;
-		cursor: pointer;
-		margin:0;
-	}
-
-	.datenschutz{
-		color: white !important;
-		text-decoration: underline;
-		padding: 0;
-		margin: 0;
-	}
-	
-	.bottom{
-		position:absolute;
-		bottom:15px;
-	}
-	@media (max-width: 900px) {
-		#youtube > * {
-			margin: 5px;
-		}
-
-		#play{
-			position: relative !important;
-			left: calc(50% - 32px);
-			top: -2%;
-		}
-		.bottom{
-			position: unset !important;
-		}
-	}
-
-
-</style>
